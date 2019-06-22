@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Барбершоп «Бородинский»</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="main-nav">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа «Бородинский»">
+      </a>
+      <ul class="main-menu">
+        <li><a href="info.html">Информация</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="price.html">Прайс-лист</a></li>
+        <li><a href="catalog.html">Магазин</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+      <ul class="user-menu">
+        <li><a class="auth" href="login.html">Вход</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Набор для путешествий «Baxter of California»</h1>
+
+    <ul class="breadcrumbs">
+      <li><a href="index.html">Главная</a></li>
+      <li>Прайс-лист</li>
+    </ul>
+
+    <div class="inner-page">
+      
+    </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <p class="footer-contacts">
+      Барбершоп «Бородинский»<br>
+      Адрес: г. Санкт-петербург, б. Конюшенная, д. 19/8<br>
+      <a href="map.html">Как нас найти?</a><br>
+      Телефон: +7 (495) 666-02-66
+    </p>
+
+    <div class="footer-social">
+      <b>Давайте дружить!</b>
+      <ul class="social-links">
+        <li><a href="">Вконтакте</a></li>
+        <li><a href="">Фейсбук</a></li>
+        <li><a href="">Инстаграмм</a></li>
+      </ul>
+    </div>
+
+    <p class="footer-copyright">
+      <b>Разработано</b>
+      <a class="button" href="">HTML Academy</a>
+    </p>
+
+  </footer>
+
+  <section class="modal modal-auth">
+    <h2>Личный кабинет</h2>
+    <p>Введите пожалуйста свой логин и пароль</p>
+    <form class="auth-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма авторизации">
+      <p class="auth-login">
+        <label for="auth-login" class="visually-hidden">Логин</label>
+        <input id="auth-login" type="text" name="login" placeholder="Логин" required>
+      </p>
+      <p class="auth-pass">
+        <label for="auth-pass" class="visually-hidden">Пароль</label>
+        <input id="auth-pass" type="password" name="password" placeholder="Пароль" required>
+      </p>
+      <p class="auth-info">
+        <label class="auth-remeber">
+          <input id="auth-remeber" type="checkbox">
+          Запомните меня
+        </label>
+        <a class="auth-restore" href="#">Я забыл пароль</a>
+      </p>
+      <button class="button" type="submit">Войти</button>
+    </form>
+    <button class="modal-close" type="button">Закрыть</button>
+  </section>
+
+  <section class="modal modal-map">
+    <h2 class="visually-hidden">Как нас найти</h2>
+    <img src="img/map.jpg" width="766" height="560" alt="Адрес барбершопа: г. Санкт-петербург, б. Конюшенная, д. 19/8">
+    <button class="modal-close" type="button">Закрыть</button>
+  </section>
+  
+</body>
+</html>
