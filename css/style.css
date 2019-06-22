@@ -40,6 +40,7 @@ input[type=text], input[type=password] {
 }
 
 body {
+  min-width: 960px;
   font-family: "PT Sans Narrow", Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -179,6 +180,7 @@ body {
 .user-menu a:hover,
 .user-menu a:focus {
   background-color: #242424;
+  outline-color: #a25203;
 }
 .current {
   position: relative;
@@ -212,6 +214,8 @@ body {
   color: #F7F4F1;
   background-color: #070707;
   border: none;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 .button:hover,
 .button:focus {
@@ -233,7 +237,7 @@ body {
 .container input:hover,
 .container input:focus {
   border-color: #663d15;
-  outline: none;
+  outline-color: #a25203;
 }
 
 /* --- MAIN --- */
@@ -393,6 +397,10 @@ body {
   margin-right: 42px;
   color: #ABA9A7;
 }
+.breadcrumbs li:last-child {
+  pointer-events: none;
+}
+
 .breadcrumbs li:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -405,6 +413,9 @@ body {
 }
 .breadcrumbs a {
   color: #000000;
+}
+.breadcrumbs a:focus {
+  outline-color: #a25203;
 }
 
 .catalog-column {
@@ -541,10 +552,13 @@ body {
 .catalog-item:hover {
   box-shadow: 0 0 15px rgba(102,61,21,0.7);
 }
-.catalog-item a{
+.catalog-item a {
   display: flex;
   flex-direction: column;
   color: #000000;
+}
+.catalog-item a:focus {
+  outline-color: #a25203;
 }
 .catalog-item h3 {
   order: 1;
@@ -690,7 +704,8 @@ p.product-description {
 .catalog-pagination a:hover,
 .catalog-pagination a:focus,
 .catalog-pagination a:active {
-  background-color: #663d15; 
+  background-color: #663d15;
+  outline: none;
 }
 .catalog-current-page a,
 .catalog-current-page a:hover,
@@ -712,6 +727,7 @@ p.product-description {
   background-color: #232323;
   background-image: url("../img/footer-bg.jpg");
 }
+
 .inner-page .main-footer {
   margin-top: 50px;
 }
@@ -737,14 +753,22 @@ p.product-description {
 .footer-contacts a:focus {
   text-decoration: none;
 }
+.footer-contacts a:focus {
+  outline: #a25203 solid 1px;
+  outline-offset: 3px;
+}
 
 .footer-social,
 .footer-copyright {
   text-align: center;
 }
 .footer-social {
-  margin-right: 240px;
-  width: 141px;
+  margin-right: 230px;
+  min-width: 141px;
+  max-width: 190px;
+}
+.footer-social a:focus {
+  outline: none;
 }
 .footer-social b {
   display: block;
@@ -752,10 +776,16 @@ p.product-description {
 }
 .social-links {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.social-links li {
+  margin-right: 6px;
+}
+.social-links li:last-child {
+  margin-right: 0;
 }
 .social-button {
   display: flex;
@@ -901,6 +931,19 @@ p.product-description {
 
 /* --- Модальные окна --- */
 
+/*оверлей для модальных окон*/
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(36,36,36,0.7);
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -922,6 +965,11 @@ p.product-description {
   padding: 50px 80px;
   color: #000000;
 }
+.modal-auth-show {
+  animation-name: bounce;
+  animation-duration: 0.6s;
+}
+
 .modal-auth h2 {
   margin: 0 0 20px;
   font-size: 30px;
@@ -1013,22 +1061,29 @@ p.product-description {
 
 .modal-close {
   position: absolute;
-  top: 0;
-  right: -35px;
+  top: -9px;
+  right: -55px;
   width: 22px;
   height: 22px;
+  padding: 20px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
+.modal-close:focus,
+.modal-close:active {
+  outline-color: #663D15;
+}
+
 .modal-close::after,
 .modal-close::before {
   content: "";
   position: absolute;
-  top: 9px;
-  left: -3px;
+  top: 18px;
+  left: 6px;
   width: 28px;
   height: 4px;
-  background-color: #cccccc;
+  background-color: #D0D0D0;
 }
 .modal-close::after {
   transform: rotate(45deg);
@@ -1047,20 +1102,45 @@ p.product-description {
   box-sizing: border-box;
 }
 
-
-/*оверлей для модальных окон*/
-.modal-overlay {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left:0;
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(0,0,0,0.5);
+.modal-error {
+  animation-name: shake;
+  animation-duration: 0.6s;
+}
+input[type="text"].border-error,
+input[type="password"].border-error {
+  border-color: red;
 }
 
+
+/* --- анимация --- */
+
+/* выпадающее окно авторизации*/
+@keyframes bounce {
+  0% { transform: translateY(-2000px); }
+  70% { transform: translateY(30px); }
+  90% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* ошибка валидации */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+
+
+
+.modal-show {
+  display: block;
+}
+.modal-hide {
+  display: none;
+}
+.border0 {
+  border: 0;
+}
 
 /*псевдораспорка. устанавливается в родительский блок*/
 .clearfix::after {

@@ -2,26 +2,33 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
   <title>Барбершоп «Бородинский»</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="inner-page">
+
   <header class="main-header">
     <nav class="main-nav">
       <a class="logo" href="index.html" aria-label="Главная страница">
         <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа «Бородинский»">
       </a>
-      <ul class="main-menu">
-        <li><a href="#info.html">Информация</a></li>
-        <li><a href="#news.html">Новости</a></li>
-        <li class="current"><a href="price.html">Прайс-лист</a></li>
-        <li><a href="catalog.html">Магазин</a></li>
-        <li><a href="#contacts.html">Контакты</a></li>
-      </ul>
-      <ul class="user-menu">
-        <li><a class="auth" href="login.html">Вход</a></li>
-      </ul>
+      <div class="main-nav-wrapper">
+        <div class="container">
+          <ul class="main-menu">
+            <li><a href="#info.html">Информация</a></li>
+            <li><a href="#news.html">Новости</a></li>
+            <li class="current"><a href="price.html">Прайс-лист</a></li>
+            <li><a href="catalog.html">Магазин</a></li>
+            <li><a href="#contacts.html">Контакты</a></li>
+          </ul>
+          <ul class="user-menu">
+            <li><a class="auth" href="login.html">Вход</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -34,7 +41,7 @@
     </ul>
 
     <section class="inner-content">
-      <h1 class="big-header">Истинно мужская классика</h1>
+      <h2 class="big-header">Истинно мужская классика</h2>
 
     <div class="inner-columns">
       <div class="column-left">
@@ -87,7 +94,7 @@
       <p class="footer-contacts">
         Барбершоп «Бородинский»<br>
         Адрес: г. Санкт-петербург, б. Конюшенная, д. 19/8<br>
-        <a href="map.html">Как нас найти?</a><br>
+        <a class="js-show-map" href="map.html">Как нас найти?</a><br>
         Телефон: +7 (495) 666-02-66
       </p>
 
@@ -140,11 +147,11 @@
     <form class="auth-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма авторизации">
       <p class="auth-login">
         <label for="auth-login" class="visually-hidden">Логин</label>
-        <input id="auth-login" type="text" name="login" placeholder="Логин" required>
+        <input id="auth-login" type="text" name="login" placeholder="Логин">
       </p>
       <p class="auth-pass">
         <label for="auth-pass" class="visually-hidden">Пароль</label>
-        <input id="auth-pass" type="password" name="password" placeholder="Пароль" required>
+        <input id="auth-pass" type="password" name="password" placeholder="Пароль">
       </p>
       <p class="auth-info">
         <input class="auth-remeber visually-hidden" id="auth-remeber" type="checkbox">
@@ -158,10 +165,10 @@
 
   <section class="modal modal-map">
     <h2 class="visually-hidden">Как нас найти</h2>
-    <!-- <img src="img/map.jpg" width="766" height="560" alt="Адрес барбершопа: г. Санкт-петербург, б. Конюшенная, д. 19/8"> -->
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6036253003365!2d30.3208587165132!3d59.93871916905374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1561059612338!5m2!1sru!2sru" width="766" height="560" frameborder="0" style="border:0" allowfullscreen title="Адрес барбершопа: г. Санкт-петербург, б. Конюшенная, д. 19/8"">Адрес барбершопа: г. Санкт-петербург, б. Конюшенная, д. 19/8"</iframe>
-    <button class="modal-close" type="button"><span class="visually-hidden">Закрыть<span></button>
+    <img src="img/map.jpg" width="766" height="560" alt="Адрес барбершопа: г. Санкт-петербург, б. Конюшенная, д. 19/8">
+    <button class="modal-close" type="button"><span class="visually-hidden">Закрыть</span></button>
   </section>
   
+  <script src="js/modal.js"></script>
 </body>
 </html>
