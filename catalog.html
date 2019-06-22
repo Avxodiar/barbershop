@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Барбершоп «Бородинский»</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="inner-page">
   <header class="main-header">
     <nav class="main-nav">
-      <a class="logo" href="index.html">
+      <a class="logo" href="index.html" aria-label="Главная страница">
         <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа «Бородинский»">
       </a>
       <ul class="main-menu">
         <li><a href="info.html">Информация</a></li>
         <li><a href="news.html">Новости</a></li>
         <li><a href="price.html">Прайс-лист</a></li>
-        <li><a href="catalog.html">Магазин</a></li>
+        <li class="current"><a href="catalog.html">Магазин</a></li>
         <li><a href="contacts.html">Контакты</a></li>
       </ul>
       <ul class="user-menu">
@@ -41,40 +42,29 @@
           <legend>Производили:</legend>
           <ul class="filter-options">
             <li>
-              <label>
-                <input type="checkbox" name="baxter-of-california" checked>
-                Baxter of California
+              <input class="filter-input" type="checkbox" name="baxter-of-california" id="filter-baxter" checked>
+              <label for="filter-baxter">Baxter of California
               </label>
             </li>
             <li>
-              <label>
-                <input type="checkbox" name="mr-natty">
-                Mr Natty
-              </label>
+              <input class="filter-input" type="checkbox" name="mr-natty" id="filter-natty">
+              <label for="filter-natty">Mr Natty</label>
             </li>
             <li>
-              <label>
-                <input type="checkbox" name="suavecito" checked>
-                Suavecito
-              </label>
+              <input class="filter-input" type="checkbox" name="suavecito" id="filter-suavecito" checked>
+              <label for="filter-suavecito">Suavecito</label>
             </li>
             <li>
-              <label>
-                <input type="checkbox" name="malin-goetz" disabled>
-                Malin+Goetz
-              </label>
+              <input class="filter-input" type="checkbox" name="malin-goetz" id="filter-malin-goetz" disabled>
+              <label for="filter-malin-goetz">Malin+Goetz</label>
             </li>
             <li>
-              <label>
-                <input type="checkbox" name="murrays">
-                Murray's
-              </label>
+              <input class="filter-input" type="checkbox" name="murrays" id="filter-murrays">
+              <label for="filter-murrays">Murray's</label>
             </li>
             <li>
-              <label>
-                <input type="checkbox" name="american-crew" checked>
-                American crew
-              </label>
+              <input class="filter-input" type="checkbox" name="american-crew" id="filter-american-crew" checked>
+              <label for="filter-american-crew">American crew</label>
             </li>
           </ul>
         </fieldset>
@@ -83,27 +73,21 @@
           <legend>Группы товаров:</legend>
           <ul class="filter-options">
             <li>
-              <label>
-                <input type="radio" name="product-group" value="shaving">
-                Бритвенные принадлежности
-              </label>
+              <input class="filter-input" type="radio" name="product-group" id="filter-shaving" value="shaving">
+              <label for="filter-shaving">Бритвенные принадлежности</label>
             </li>
             <li>
-              <label>
-                <input type="radio" name="product-group" value="hair-care" checked>
-                Средства для ухода
-              </label>
+              <input class="filter-input" type="radio" name="product-group" id="filter-hair-care" value="hair-care" checked>
+              <label for="filter-hair-care">Средства для ухода</label>
             </li>
             <li>
-              <label>
-                <input type="radio" name="product-group" value="accessories">
-                Аксесуары
-              </label>
+              <input class="filter-input" type="radio" name="product-group" id="filter-accessories" value="accessories" disabled>
+              <label for="filter-accessories">Аксесуары</label>
             </li>
           </ul>
         </fieldset>
 
-        <button class="button" type="submit">Войти</button>
+        <button class="button" type="submit">Показать</button>
       </form>
     </section>
 
@@ -117,12 +101,12 @@
               <span class="catalog-name">"Baxter of California"</span>
             </h3>
             <figure class="catalog-item-image">
-                <img src="img/gallery/baxter1.jpg" width="100" height="50" alt="Набор для путешествий Baxter of California">
+                <img src="img/baxter1.jpg" width="220" height="165" alt="Набор для путешествий Baxter of California">
             </figure>
           </a>
-          <p>
+          <p class="product-price">
             <b>2990</b>
-            <button>Купить</button>
+            <button class="button">Купить</button>
           </p>
         </li>
 
@@ -135,12 +119,12 @@
           </h3>
           <figure class="catalog-item-image">
             <a href="catalog-item.html">
-              <img src="img/gallery/baxter2.jpg" width="100" height="50" alt="">
+              <img src="img/baxter2.jpg" width="220" height="165" alt="">
             </a>
           </figure>
-          <p>
+          <p class="product-price">
             <b>750</b>
-            <button>Купить</button>
+            <button class="button">Купить</button>
           </p>
         </li>
 
@@ -151,12 +135,12 @@
               <span class="catalog-name">"Suavecito"</span>
             </h3>
             <figure class="catalog-item-image">
-              <img src="img/gallery/suavecito.jpg" width="100" height="50" alt="">
+              <img src="img/suavecito.jpg" width="220" height="165" alt="">
             </figure>
           </a>
-          <p>
+          <p class="product-price">
             <b>290</b>
-            <button>Купить</button>
+            <button class="button">Купить</button>
           </p>
         </li>
 
@@ -167,12 +151,12 @@
               <span class="catalog-name">"American crew"</span>
             </h3>
             <figure class="catalog-item-image">
-              <img src="img/gallery/american_crew1.jpg" width="100" height="50" alt="">
+              <img src="img/american_crew1.jpg" width="220" height="165" alt="">
             </figure>
           </a>
-          <p>
+          <p class="product-price">
             <b>500</b>
-            <button>Купить</button>
+            <button class="button">Купить</button>
           </p>
         </li>
 
@@ -183,12 +167,12 @@
               <span class="catalog-name">"American crew"</span>
             </h3>
             <figure class="catalog-item-image">
-              <img src="img/gallery/american_crew1.jpg" width="100" height="50" alt="">
+              <img src="img/american_crew2.jpg" width="220" height="165" alt="">
             </figure>
           </a>
           <p class="product-price">
             <b>300</b>
-            <button>Купить</button>
+            <button class="button">Купить</button>
           </p>
         </li>
 
@@ -199,12 +183,12 @@
               <span class="catalog-name">"Baxter of California"</span>
             </h3>
             <figure class="catalog-item-image">
-              <img src="img/gallery/baxter3.jpg" width="100" height="50" alt="">
+              <img src="img/baxter3.jpg" width="220" height="165" alt="">
             </figure>
           </a>
-          <p>
+          <p class="product-price">
             <b>3900</b>
-            <button>Купить</button>
+            <button class="button">Купить</button>
           </p>
         </li>
       </ul>
@@ -213,7 +197,7 @@
     <ul class="catalog-pagination">
       <li><a href="#">1</a></li>
       <li><a href="#">2</a></li>
-      <li class="current"><a>3</a></li>
+      <li class="catalog-current-page"><a>3</a></li>
       <li><a href="#">4</a></li>
     </ul>
 
@@ -230,9 +214,9 @@
     <div class="footer-social">
       <b>Давайте дружить!</b>
       <ul class="social-links">
-        <li><a href="">Вконтакте</a></li>
-        <li><a href="">Фейсбук</a></li>
-        <li><a href="">Инстаграмм</a></li>
+        <li><a href="#">Вконтакте</a></li>
+        <li><a href="#">Фейсбук</a></li>
+        <li><a href="#">Инстаграмм</a></li>
       </ul>
     </div>
 
@@ -260,7 +244,7 @@
           <input id="auth-remeber" type="checkbox">
           Запомните меня
         </label>
-        <a class="auth-restore" href="#">Я забыл пароль</a>
+        <a class="auth-restore" href="#">Я забыл пароль!</a>
       </p>
       <button class="button" type="submit">Войти</button>
     </form>

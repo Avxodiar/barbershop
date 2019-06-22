@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Барбершоп «Бородинский»</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -45,74 +46,77 @@
       </ul>
     </section>
 
-    <section  class="news">
-      <h2>Новости</h2>
-      <ul class="news-list">
-        <li class="news-item">
-          <p>Нам наконец завезли ягермайстер! теперь вы можете пропустить стаканчик во время стрижки
+    <div class="two-column">
+      <section class="news">
+        <h2>Новости</h2>
+        <ul class="news-list">
+          <li class="news-item">
+            <p>Нам наконец завезли ягермайстер! теперь вы можете пропустить стаканчик во время стрижки</p>
             <time datetime="2019-01-11">11 января</time>
+          </li>
+          <li class="news-item">
+            <p>
+              В нашей команде пополнение, борис «бритва» стригунец, обладaтель множества титулов и наград пополнил наши стройные ряды</p>
+              <time datetime="2019-01-18">18 января</time>
+          </li>
+        </ul>
+        <a class="button" href="news.html">Все новости</a>
+      </section>
+
+      <section class="gallery">
+        <h2>Фотогалерея</h2>
+        <figure class="gallery-image">
+            <img src="img/gallery.jpg" width="286" height="164" alt="Фото салона">
+        </figure>
+        <button class="button gallery-button gallery-button-prev">Назад</button>
+        <button class="button gallery-button gallery-button-next">Вперед</button>
+      </section>
+    </div>
+
+    <div class="two-column">
+      <section class="contacts">
+        <h2>Контактная информация</h2>
+        <p>Барбершоп «Бородинский»<br>
+          Адрес: г. Санкт-петербург, б. Конюшенная, д. 19/8<br>
+          Телефон: +7 (495) 666-02-66</p>
+        <p>Время работы:<br>
+          пн—пт: с 10:00 до 22:00<br>
+          сб—вс: с 10:00 до 19:00</p>
+        <a class="button" href="map.html">Как проехать</a>
+        <a class="button" href="contacts.html">Обратная связь</a>
+      </section>
+
+      <section class="appointment">
+        <h2>Записаться</h2>
+        <p>Укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони</p>
+        <form class="appointment-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма записи на посещение барбершопа">
+          <p class="appointment-date">
+            <label>Дата
+              <input id="appointment-date" type="date" name="date" required>
+            </label>
           </p>
-        </li>
-        <li class="news-item">
-          <p>
-            В нашей команде пополнение, борис «бритва» стригунец, обладaтель множества титулов и наград пополнил наши стройные ряды
-            <time datetime="2019-01-18">18 января</time>
+          <p class="appointment-time">
+            <label>Время
+              <input id="appointment-time" type="time" name="time" required>
+            </label>
           </p>
-        </li>
-      </ul>
-      <a class="button" href="news.html">Все новости</a>
-    </section>
+          <p class="appointment-name">
+            <label>
+              Ваше имя
+              <input id="appointment-name" type="text" name="name" placeholder="Бородач" required>
+            </label>
+          </p>
+          <p class="appointment-phone">
+            <label>
+              Телефон
+              <input id="appointment-phone" type="tel" name="phone" placeholder="+7 123 456-78-90" required>
+            </label>
+          </p>
+          <button class="button" type="submit">Отправить</button>
+        </form>
+      </section>
+    </div>
 
-    <section class="gallery">
-      <h2>Фотогалерея</h2>
-      <figure class="gallery-image">
-          <img src="img/gallery.jpg" width="286" height="164" alt="Фото салона">
-      </figure>
-      <button class="button gallery-button gallery-button-prev">Назад</button>
-      <button class="button gallery-button gallery-button-next">Вперед</button>
-    </section>
-
-    <section class="contacts">
-      <h2>Контактная информация</h2>
-      <p>Барбершоп «Бородинский»<br>
-        Адрес: г. Санкт-петербург, б. Конюшенная, д. 19/8<br>
-        Телефон: +7 (495) 666-02-66</p>
-      <p>Время работы:<br>
-        пн—пт: с 10:00 до 22:00<br>
-        сб—вс: с 10:00 до 19:00</p>
-      <a class="button" href="map.html">Как проехать</a>
-      <a class="button" href="contacts.html">Обратная связь</a>
-    </section>
-
-    <section class="appointment">
-      <h2>Записаться</h2>
-      <p>Укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони</p>
-      <form class="appointment-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма записи на посещение барбершопа">
-        <p class="appointment-date">
-          <label>Дата
-            <input id="appointment-date" type="date" name="date" required>
-          </label>
-        </p>
-        <p class="appointment-time">
-          <label>Время
-            <input id="appointment-time" type="time" name="time" required>
-          </label>
-        </p>
-        <p class="appointment-name">
-          <label>
-            Ваше имя
-            <input id="appointment-name" type="text" name="name" placeholder="Бородач" required>
-          </label>
-        </p>
-        <p class="appointment-phone">
-          <label>
-            Телефон
-            <input id="appointment-phone" type="tel" name="phone" placeholder="+7 123 456-78-90" required>
-          </label>
-        </p>
-        <button class="button" type="submit">Отправить</button>
-      </form>
-    </section>
   </main>
 
   <footer class="main-footer">
@@ -126,9 +130,9 @@
     <div class="footer-social">
       <b>Давайте дружить!</b>
       <ul class="social-links">
-        <li><a href="">Вконтакте</a></li>
-        <li><a href="">Фейсбук</a></li>
-        <li><a href="">Инстаграмм</a></li>
+        <li><a href="#">Вконтакте</a></li>
+        <li><a href="#">Фейсбук</a></li>
+        <li><a href="#">Инстаграмм</a></li>
       </ul>
     </div>
 
@@ -156,7 +160,7 @@
           <input id="auth-remeber" type="checkbox">
           Запомните меня
         </label>
-        <a class="auth-restore" href="#">Я забыл пароль</a>
+        <a class="auth-restore" href="#">Я забыл пароль!</a>
       </p>
       <button class="button" type="submit">Войти</button>
     </form>

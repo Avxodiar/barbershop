@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Барбершоп «Бородинский»</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="inner-page">
   <header class="main-header">
     <nav class="main-nav">
-      <a class="logo" href="index.html">
+      <a class="logo" href="index.html" aria-label="Главная страница">
         <img src="img/logo.svg" width="111" height="24" alt="Логотип барбершопа «Бородинский»">
       </a>
       <ul class="main-menu">
         <li><a href="info.html">Информация</a></li>
         <li><a href="news.html">Новости</a></li>
-        <li><a href="price.html">Прайс-лист</a></li>
+        <li class="current"><a href="price.html">Прайс-лист</a></li>
         <li><a href="catalog.html">Магазин</a></li>
         <li><a href="contacts.html">Контакты</a></li>
       </ul>
@@ -25,16 +26,43 @@
   </header>
 
   <main class="container">
-    <h1>Набор для путешествий «Baxter of California»</h1>
+    <h1>Истинно мужская классика</h1>
 
-    <ul class="breadcrumbs">
-      <li><a href="index.html">Главная</a></li>
-      <li>Прайс-лист</li>
-    </ul>
+    <section>
+      <h3>Мы используем только лучшие средства:</h3>
+      <ul>
+        <li>Baxter of California</li>
+        <li>Mr Natty</li>
+        <li>Suavecito</li>
+        <li>Malin+Goetz</li>
+      </ul>
+    </section>
 
-    <div class="inner-page">
-      
-    </div>
+    <section>
+      <h3>Цены на услуги наших мастеров:</h3>
+      <table>
+        <tr>
+          <td>Стрижка</td>
+          <td>1500 р</td>
+        </tr>
+        <tr>
+          <td>Стрижка бороды</td>
+          <td>500 р</td>
+        </tr>
+        <tr>
+          <td>Накрутка усов</td>
+          <td>350 р</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h3>Несколько слов о нас:</h3>
+      <p>
+        Наша парикмахерская занимается исключительно мужскими стрижками. Стрижка каждого клиента для нас - это уникальная и продуманная до мелочей работа. Мы не работаем на количество, мы делаем качество.
+      </p>
+      <p>Наша мастерская расположена в центре города, поэтому сделать стильную стрижку можно в любое время, даже в обеденный перерыв. Здесь вы можете погрузиться в удобную для вас атмосферу, чувствовать себя комфортно и свободно!</p>
+    </section>
 
   </main>
 
