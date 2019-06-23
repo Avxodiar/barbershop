@@ -99,20 +99,20 @@
         <p>Укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони</p>
         <form class="appointment-form" action="https://echo.htmlacademy.ru" method="post" aria-label="Форма записи на посещение барбершопа">
           <p class="appointment-date">
-            <label>Дата</label>
-            <input id="appointment-date" type="text" name="date" placeholder="17.06.2019" required pattern="{dd}.{dd}.{dddd}">
+            <label for="appointment-date">Дата</label>
+            <input id="appointment-date" type="text" name="date" placeholder="17.06.2019" required pattern="((0[1-9]|1[0-9]|2[0-9])|3[01]).(0[1-9]|1[012]).(20[1-9][0-9])">
           </p>
           <p class="appointment-time">
-            <label>Время</label>
-            <input id="appointment-time" type="text" name="time" placeholder="10:00" required>
+            <label for="appointment-time">Время</label>
+            <input id="appointment-time" type="text" name="time" placeholder="10:00" required pattern="[0-9]{2}:[0-9]{2}">
           </p>
           <p class="appointment-name">
-            <label>Ваше имя</label>
-            <input id="appointment-name" type="text" name="name" placeholder="Бородач" required>
+            <label for="appointment-name">Ваше имя</label>
+            <input id="appointment-name" type="text" name="name" placeholder="Бородач" required pattern="^[А-Яа-яЁё\s]+$">
           </p>
           <p class="appointment-phone">
-            <label>Телефон</label>
-            <input id="appointment-phone" type="tel" name="phone" placeholder="+7 123 456-78-90" required>
+            <label for="appointment-phone">Телефон</label>
+            <input id="appointment-phone" type="tel" name="phone" placeholder="+7 123 456-78-90" required  pattern="[+][7][\s-]?[(]?[0-9]{3}[)]?[\s-]?[0-9]{3}[-]?[0-9]{2}[-]?[0-9]{2}">
           </p>
           <button class="button" type="submit">Отправить</button>
         </form>
