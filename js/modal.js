@@ -179,4 +179,15 @@ function evtFormValidation(event) {
   }
 }
 
-
+/**
+ * Смена изображения большого фото по клику на превью на детальной странице товара
+ */
+var fotoPreview = document.querySelectorAll('.product-foto-preview img');
+var fotoBig = document.querySelector('.product-foto-big img');
+fotoPreview.forEach( function(elem) {
+  elem.addEventListener("click", evtChangeDetailFoto);
+});
+function evtChangeDetailFoto(event) {
+  var img = event.target.src.replace("small", "big");
+  fotoBig.src = img;
+}

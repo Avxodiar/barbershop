@@ -40,6 +40,10 @@ input[type=text], input[type=password] {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
   min-width: 960px;
   font-family: "PT Sans Narrow", Arial, sans-serif;
   font-size: 16px;
@@ -62,6 +66,11 @@ body {
   background-image: url("../img/white.jpg");
   background-repeat: repeat;
 }
+
+main.container {
+  flex-grow: 1;
+}
+
 /*--- конец общих правил ---*/
 
 /* --- HEADER ---- */
@@ -720,6 +729,7 @@ body {
 .product-foto-preview img {
   width: 140px;
   height: 149px;
+  cursor: pointer;
   -webkit-box-shadow: 0 0 15px rgba(0,1,1,0.2);
           box-shadow: 0 0 15px rgba(0,1,1,0.2);
 }
@@ -1348,4 +1358,15 @@ input[type="radio"].visually-hidden {
 .button:hover .avx,
 .button:focus .avx {
   display: block;
+}
+.footer-copyright .button {
+  animation:annoying 1s ease-in infinite alternate;
+}
+@keyframes annoying{
+  from{
+    border: 1px solid black;
+  }
+  to{
+    border: 1px solid #666;
+  }
 }
