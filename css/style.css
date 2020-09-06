@@ -1113,6 +1113,93 @@ p.product-description {
   width: 400px;
 }
 
+/*страница новостей*/
+.inner-content .news-list {
+  width: 100%;
+}
+.inner-content .news-item {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.inner-content .news-item time {
+  margin: 5px 20px 30px 0;
+  position: relative;
+  width: 60px;
+  padding: 10px 15px 7px;
+  background: black;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+.inner-content .news-item time::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  border: 20px solid black;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 0;
+}
+
+.inner-content .news-item p {
+  margin-top: 0;
+  width: 820px;
+}
+
+/*страница Контакты*/
+.inner-content .contacts {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.inner-content .contacts h2 {
+  margin-top: 20px;
+}
+.inner-content .contacts div {
+  width: 50%;
+}
+.inner-content .contacts div:last-child {
+  text-align: right;
+}
+.inner-content .contacts div:last-child phone {
+  font-size: xxx-large;
+  line-height: 78px;
+}
+
+.inner-content .contacts .custom-table td {
+  border: none;
+  font-size: large;
+}
+.inner-content .custom-table .left {
+  text-align: left;
+}
+.inner-content .custom-table .right {
+  text-align: right;
+}
+
+/*.inner-content .contacts .custom-table.work-time {
+  width: 50%;
+}*/
+.inner-content .contacts .custom-table.adress {
+  margin-top: 65px;
+}
+.inner-content .contacts .custom-table.adress td {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.inner-content .contact-map {
+  margin: 0 0 65px
+  width: 100%;
+  height: 100%;
+  outline: 1px solid lightgrey;
+  line-height: 0;
+}
+
 /* --- Модальные окна --- */
 
 /*оверлей для модальных окон*/

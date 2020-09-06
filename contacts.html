@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Барбершоп «Бородинский» - Набор для путешествий «Baxter of California»</title>
+  <title>Барбершоп «Бородинский» - Контакты</title>
   <link rel="stylesheet" href="css/normalize.min.css">
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="inner-page">
@@ -21,8 +21,8 @@
             <li><a href="index.html">Информация</a></li>
             <li><a href="news.html">Новости</a></li>
             <li><a href="price.html">Прайс-лист</a></li>
-            <li class="current"><a>Магазин</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="catalog.html">Магазин</a></li>
+            <li class="current"><a>Контакты</a></li>
           </ul>
           <ul class="user-menu">
             <li><a class="auth" href="login.html">Вход</a></li>
@@ -33,55 +33,43 @@
   </header>
 
   <main class="container">
-    <h1>Набор для путешествий «Baxter of California»</h1>
 
+    <h1>Контактная информация</h1>
     <ul class="breadcrumbs">
       <li><a href="index.html">Главная</a></li>
-      <li><a href="catalog.html">Магазин</a></li>
-      <li><a href="catalog.html?filter=1">Средства для ухода</a></li>
-      <li>Набор для путешествий «Baxter of California»</li>
+      <li>Контакты</li>
     </ul>
 
-    <div class="product-columns">
-      <section class="product-images">
-        <h2 class="visually-hidden">Фотографии товара</h2>
-        <figure class="product-foto-big">
-          <img src="img/catalog/baxter1-3big.jpg" width="460" height="498" alt="Фото набора">
-        </figure>
-        <ul class="product-foto-preview">
-          <li>
-            <img src="img/catalog/baxter1-1small.jpg" width="140" height="149" alt="фото вид спереди">
-          </li>
-          <li>
-            <img src="img/catalog/baxter1-2small.jpg" width="140" height="149" alt="фото вид снизу">
-          </li>
-          <li>
-            <img src="img/catalog/baxter1-3small.jpg" width="140" height="149" alt="фото вид сверху">
-          </li>
-        </ul>
-      </section>
+    <section class="inner-content">
+        <section class="contacts">
 
-      <section class="product-info">
-        <h2 class="visually-hidden">Описание товара</h2>
-        <div class="product-spec">
-          <p class="available">Есть в наличии</p>
-          <p class="article">Артикул:DEXTER-AE</p>
-        </div>
-        <p class="product-description">Travel Kit – необходимый аксессуар во время любого путешествия. В аккуратной кожаной сумке находится все, что нужно для бритья и ухода за кожей во время рабочей поездки или отдыха: средство для умывания, увлажняющий крем, крем для бритья, крем после бритья, шампунь. Набор также может стать отличным подарком.</p>
-        <p class="product-price">
-          <b>2 900</b>
-          <button class="button">Купить</button>
-        </p>
-        <h3>В набор входят</h3>
-        <ul>
-          <li>Средство для умывания (50 мл)</li>
-          <li>Увлажняющий крем (50 мл)</li>
-          <li>Крем для бритья (50 мл)</li>
-          <li>Крем после бритья, шампунь (50 мл)</li>
-          <li>удобная кожаная косметичка</li>
-        </ul>
-      </section>
-    </div>
+          <div>
+            <h2>Режим работы нашего салона:</h2>
+            <table class="custom-table work-time">
+              <tr>
+                <th>понедельник — пятница:</th>
+                <td>с 10:00 до 22:00</td>
+              </tr>
+              <tr>
+                <th>субботка — воскресенье:</th>
+                <td>с 10:00 до 19:00</td>
+              </tr>
+            </table>
+          </div>
+
+          <div>
+            <h2>Телефон для записи:</h2>
+            <phone>+7 (495) 666-02-66</phone>
+          </div>
+
+        </section>
+  
+        <h2>Наш адрес: <adress>г. Санкт-петербург, б. Конюшенная, д. 19/8</adress></h2>
+        <section class="contact-map">
+          <img src="img/map.jpg" width="940" height="687" alt="Адрес барбершопа: г. Санкт-петербург, б. Конюшенная, д. 19/8">
+        </section>
+
+    </section>
 
   </main>
 
@@ -164,6 +152,7 @@
     <button class="modal-close" type="button"><span class="visually-hidden">Закрыть</span></button>
   </section>
   
-  <script src="js/modal.min.js"></script>
+  <!-- <script src="js/modal.min.js"></script> -->
+  <script src="js/modal.js"></script>
 </body>
 </html>

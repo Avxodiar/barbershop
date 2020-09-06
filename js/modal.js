@@ -78,7 +78,7 @@ function evtShowMap(event) {
   modalMap.classList.add("modal-show");
   buttonClose = modalMap.querySelector(".modal-close");
   buttonClose.addEventListener("click", evtCloseModal);
-  showFrameMap();
+  showFrameMap(modalMap);
 }
 
 /**
@@ -123,18 +123,25 @@ function evtCloseByOverlay() {
 /**
  * Динамическая загрузка гугл-карты и замена статичного jpg в модальном окне карты
  */
-function showFrameMap() {
-  var frameMap = modalMap.querySelector("iframe");
+function showFrameMap(map) {
+  var frameMap = map.querySelector("iframe");
   if(frameMap === null ) {
+    var frameWidth = 766;
+    var frameHeight = 560;
+    var mapImg = map.querySelector('img');
+    if(mapImg !== null) {
+      frameWidth = mapImg.width;
+      frameHeight = mapImg.height;
+    }
     frameMap = document.createElement("iframe");
     frameMap.className = "border0 modal-hide";
-    frameMap.width = 766;
-    frameMap.height = 560;
+    frameMap.width = frameWidth;
+    frameMap.height = frameHeight;
     frameMap.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6036253003365!2d30.32085871651319!3d59.93871916905374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1561079752419!5m2!1sru!2sru"
     frameMap.title = frameMap.innerHTML = "Адрес барбершопа: г. Санкт-петербург, б. Конюшенная, д. 19/8";
-    modalMap.appendChild(frameMap);
+    map.appendChild(frameMap);
     frameMap.addEventListener('load', function() {
-      modalMap.removeChild( modalMap.querySelector("img"));
+      map.removeChild( map.querySelector("img"));
       frameMap.classList.remove("modal-hide");
     });
   }
@@ -187,23 +194,27 @@ var galleryImg = document.querySelectorAll('.gallery .gallery-image img');
 var galleryCount = galleryImg.length - 1;
 
 var galleryPrev = document.querySelector('.gallery-button-prev');
-galleryPrev.addEventListener("click", function() {
-  galleryImg[currentImage].classList.remove('show');
-  currentImage--;
-  if(currentImage < 0) {
-    currentImage = galleryCount;
-  }
-  galleryImg[currentImage].classList.add('show');
-});
+if(galleryPrev !== null ) {
+  galleryPrev.addEventListener("click", function() {
+    galleryImg[currentImage].classList.remove('show');
+    currentImage--;
+    if(currentImage < 0) {
+      currentImage = galleryCount;
+    }
+    galleryImg[currentImage].classList.add('show');
+  });
+}
 var galleryNext = document.querySelector('.gallery-button-next');
-galleryNext.addEventListener("click", function() {
-  galleryImg[currentImage].classList.remove('show');
-  currentImage++;
-  if(currentImage > galleryCount) {
-    currentImage = 0;
-  }
-  galleryImg[currentImage].classList.add('show');
-});
+if(galleryNext !== null ) {
+  galleryNext.addEventListener("click", function() {
+    galleryImg[currentImage].classList.remove('show');
+    currentImage++;
+    if(currentImage > galleryCount) {
+      currentImage = 0;
+    }
+    galleryImg[currentImage].classList.add('show');
+  });
+}
 
 /**
  Отображение модальной фотогалереи
@@ -211,12 +222,14 @@ galleryNext.addEventListener("click", function() {
 var gallery = document.querySelector('.gallery figure');
 var modalGallery = document.querySelector('.modal-gallery');
 
-gallery.addEventListener('click', evtShowGallery);
-gallery.addEventListener('keydown', function (event) {
-  if( event.keyCode === 32 ) {
-    evtShowGallery(event);
-  }
-});
+if(gallery !== null ) {
+  gallery.addEventListener('click', evtShowGallery);
+  gallery.addEventListener('keydown', function (event) {
+    if( event.keyCode === 32 ) {
+      evtShowGallery(event);
+    }
+  });
+}
 
 function evtShowGallery(event) {
   event.preventDefault();
@@ -231,24 +244,25 @@ function evtShowGallery(event) {
  * Навигация в модальной галерее
  */
 var currentModalImage = 0;
-var modalGalleryPrev = modalGallery.querySelector('.button-prev');
-var modalGalleryImg = modalGallery.querySelector('img');
-modalGalleryPrev.addEventListener("click", function() {
-  currentModalImage--;
-  if(currentModalImage < 0) {
-    currentModalImage = galleryCount;
-  }
-  modalGalleryImg.src = galleryImg[currentModalImage].src;
-});
-var modalGalleryNext = modalGallery.querySelector('.button-next');
-modalGalleryNext.addEventListener("click", function() {
-  currentModalImage++;
-  if(currentModalImage > galleryCount) {
-    currentModalImage = 0;
-  }
-  modalGalleryImg.src = galleryImg[currentModalImage].src;
-});
-
+if(modalGallery !== null ) {
+  var modalGalleryPrev = modalGallery.querySelector('.button-prev');
+  var modalGalleryImg = modalGallery.querySelector('img');
+  modalGalleryPrev.addEventListener("click", function() {
+    currentModalImage--;
+    if(currentModalImage < 0) {
+      currentModalImage = galleryCount;
+    }
+    modalGalleryImg.src = galleryImg[currentModalImage].src;
+  });
+  var modalGalleryNext = modalGallery.querySelector('.button-next');
+  modalGalleryNext.addEventListener("click", function() {
+    currentModalImage++;
+    if(currentModalImage > galleryCount) {
+      currentModalImage = 0;
+    }
+    modalGalleryImg.src = galleryImg[currentModalImage].src;
+  });
+}
 
 /**
  * Детальная страница товара
@@ -263,3 +277,11 @@ function evtChangeDetailFoto(event) {
   var img = event.target.src.replace("small", "big");
   fotoBig.src = img;
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var contentMap = document.querySelector('.contact-map');
+    if(contentMap !== null ) {
+      showFrameMap(contentMap);
+    }
+});
