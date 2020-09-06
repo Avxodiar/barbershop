@@ -373,15 +373,47 @@ main.container {
   width: 300px;
 }
 .gallery-image {
+  position: relative;
   margin: 0 0 40px 0;
   padding: 7px;
   height: 164px;
   background-color: #FFFFFF;
+  cursor: pointer;
 }
+.gallery .gallery-image:hover::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 110px;
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    background: rgba(200, 200, 200, 0.5) url(../img/favicon-64x64.png) 50% 50% / 70% no-repeat;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 50%;
+}
+.gallery .gallery-image:hover::after {
+    content: "";
+    position: absolute;
+    top: 122px;
+    left: 162px;
+    width: 30px;
+    height: 10px;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+    transform: rotate(55deg);
+}
+
+
 .gallery-image img {
   width: 286px;
   height: 164px;
+  display: none;
 }
+.gallery-image img.show {
+    display: block;
+}
+
 .gallery-conrol {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1344,6 +1376,129 @@ input[type="radio"].visually-hidden {
           clip-path: inset(100%);
   clip:rect(0 0 0 0);
   overflow:hidden;
+}
+
+
+.modal-gallery {
+  width: calc(100% - 40px);
+  max-width: 1328px;
+  top: 50px;
+  margin-right: -50%;
+  padding: 7px;
+  transform: translate(-50%, 0);
+  font-size: 0;
+  line-height: 0;
+}
+.modal-gallery .gallery-image {
+  margin: 0;
+  line-height: 0;
+  height: auto;
+}
+.modal-gallery .modal-conrol {
+  position: absolute;
+  top: 7px;
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-gallery .button-prev,
+.modal-gallery .button-next {
+  width: 16%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.modal-gallery .button-prev:hover {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent 100%);
+}
+.modal-gallery .button-next:hover {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent 100%);
+}
+.modal-gallery .button-prev:active,
+.modal-gallery .button-next:active {
+  border: none;
+}
+
+.modal-gallery .button-prev::before,
+.modal-gallery .button-next::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  opacity: 0.5;
+  background-image: url(../img/arrow-left.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.modal-gallery .button-prev::before {
+  left: 5%;
+  transform: rotate(180deg);
+}
+.modal-gallery .button-next::before {
+  right: 5%;
+}
+.modal-gallery .button-prev:hover::before,
+.modal-gallery .button-next:hover::before {
+  opacity: 1;
+}
+.modal-gallery .button-prev:active::before {
+  transform: rotate(180deg) scale(0.9);
+}
+.modal-gallery .button-next:active::before {
+  transform: scale(0.9);
+}
+
+.modal-gallery .button-prev:focus::after,
+.modal-gallery .button-next:focus::after {
+  content: "";
+  border: 2px solid #fff;
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  border-radius: 40px;
+  top: calc(50% - 34px);
+  opacity: 0.5;
+}
+.modal-gallery .button-prev:focus::after {
+  left: calc(5% - 5px);
+}
+.modal-gallery .button-next:focus::after {
+  right: calc(5% - 5px);
+}
+
+
+
+.modal-gallery .modal-close {
+  top: 5px;
+  right: 5px;
+  opacity: 0.5;
+  outline: none;
+}
+.modal-gallery .modal-close:hover {
+  opacity: 1;
+}
+.modal-gallery .modal-close:active {
+  transform: scale(0.9);
+}
+.modal-gallery .modal-close:focus {
+  border: 2px solid #fff;
+  border-radius: 20px;
+  transform: scale(0.8);
+}
+
+.modal-gallery img {
+  width: 100%;
+  max-width: 1328px;
+  height: auto;
 }
 
 /* --- вне шаблона :) ---*/

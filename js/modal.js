@@ -180,7 +180,79 @@ function evtFormValidation(event) {
 }
 
 /**
- * Смена изображения большого фото по клику на превью на детальной странице товара
+ * Смена фото в Фотогалерее на главной кнопками НАЗАД / ВПЕРЕД
+ */
+var currentImage = 0;
+var galleryImg = document.querySelectorAll('.gallery .gallery-image img');
+var galleryCount = galleryImg.length - 1;
+
+var galleryPrev = document.querySelector('.gallery-button-prev');
+galleryPrev.addEventListener("click", function() {
+  galleryImg[currentImage].classList.remove('show');
+  currentImage--;
+  if(currentImage < 0) {
+    currentImage = galleryCount;
+  }
+  galleryImg[currentImage].classList.add('show');
+});
+var galleryNext = document.querySelector('.gallery-button-next');
+galleryNext.addEventListener("click", function() {
+  galleryImg[currentImage].classList.remove('show');
+  currentImage++;
+  if(currentImage > galleryCount) {
+    currentImage = 0;
+  }
+  galleryImg[currentImage].classList.add('show');
+});
+
+/**
+ Отображение модальной фотогалереи
+ */
+var gallery = document.querySelector('.gallery figure');
+var modalGallery = document.querySelector('.modal-gallery');
+
+gallery.addEventListener('click', evtShowGallery);
+gallery.addEventListener('keydown', function (event) {
+  if( event.keyCode === 32 ) {
+    evtShowGallery(event);
+  }
+});
+
+function evtShowGallery(event) {
+  event.preventDefault();
+  modalOverlay.classList.add("modal-show");
+  modalGallery.classList.add("modal-show");
+  buttonClose = modalGallery.querySelector(".modal-close");
+  buttonClose.addEventListener("click", evtCloseModal);
+  buttonClose.focus();
+}
+
+/**
+ * Навигация в модальной галерее
+ */
+var currentModalImage = 0;
+var modalGalleryPrev = modalGallery.querySelector('.button-prev');
+var modalGalleryImg = modalGallery.querySelector('img');
+modalGalleryPrev.addEventListener("click", function() {
+  currentModalImage--;
+  if(currentModalImage < 0) {
+    currentModalImage = galleryCount;
+  }
+  modalGalleryImg.src = galleryImg[currentModalImage].src;
+});
+var modalGalleryNext = modalGallery.querySelector('.button-next');
+modalGalleryNext.addEventListener("click", function() {
+  currentModalImage++;
+  if(currentModalImage > galleryCount) {
+    currentModalImage = 0;
+  }
+  modalGalleryImg.src = galleryImg[currentModalImage].src;
+});
+
+
+/**
+ * Детальная страница товара
+ * Смена изображения большого фото по клику на превью
  */
 var fotoPreview = document.querySelectorAll('.product-foto-preview img');
 var fotoBig = document.querySelector('.product-foto-big img');
